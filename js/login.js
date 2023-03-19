@@ -1,18 +1,17 @@
 $(document).ready(function() {
     // Waiting for submmission:
-  alert("start");
     $('#login-form').submit(function(event) {
       event.preventDefault(); // prevent default form submission
       
       // get form data
-          var formData = {
+    var formData = {
       username: $('#username').val(),
       email: $('#email').val(),
       password: $('#password').val(),
       confirm_password: $('#confirm-password').val()
     };
 
-          alert('connecting to php.');
+       //   alert('connecting to php.');
       // send data to server using AJAX
       $.ajax({
         type: 'POST',
