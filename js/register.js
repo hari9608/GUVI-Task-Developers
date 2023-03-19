@@ -9,7 +9,7 @@ $(document).ready(function () {
       password: $('#password').val(),
       confirm_password: $('#confirm-password').val()
     };
-        alert('submitting form!');
+    //    alert('submitting form!');
     // send form data to server using ajax
     $.ajax({
       url: './php/register.php',
