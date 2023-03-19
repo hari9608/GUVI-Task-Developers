@@ -47,14 +47,14 @@ try {
   }
 
   
-require 'vendor/autoload.php';
+  require 'vendor/autoload.php';
 
-// Replace the following values with your MongoDB connection string and database name
-$mongoConnString = "mongodb://localhost:27017";
-// Create a new MongoClient instance
-$mongoManager = new MongoDB\Driver\Manager($mongoConnString);
+  // Replace the following values with your MongoDB connection string and database name
+  $mongoConnString = "mongodb://localhost:27017";
+  // Create a new MongoClient instance
+  $mongoManager = new MongoDB\Driver\Manager($mongoConnString);
 
-$collection = 'guvi.login';
+  $collection = 'guvi.login';
   $filter = ['username' => $username];
   $update = ['$set' => ['email' => $email]];
 
@@ -72,12 +72,12 @@ $collection = 'guvi.login';
   // execute the update query
   $result = $mongoManager->executeBulkWrite($collection, $query);
 
-} catch (mysqli_sql_exception $e) {
-  echo 'Message: ' .$e->getMessage();
-  $response = array('success' => false);
-  //response = array('success' => 100,'message'=>'Message: ' .$e->getMessage());
-}
-// send response to client
-header('Content-Type: application/json');
-echo json_encode($response);
+  } catch (mysqli_sql_exception $e) {
+    echo 'Message: ' .$e->getMessage();
+    $response = array('success' => false);
+    //response = array('success' => 100,'message'=>'Message: ' .$e->getMessage());
+    }
+  // send response to client
+  header('Content-Type: application/json');
+  echo json_encode($response);
 ?>
